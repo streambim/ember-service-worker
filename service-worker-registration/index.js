@@ -3,7 +3,7 @@ export const PROJECT_REVISION = '{{PROJECT_REVISION}}';
 let SUCCESS_HANDLERS = [];
 let ERROR_HANDLERS = [];
 
-if ('serviceWorker' in navigator) {
+if ('serviceWorker' in navigator && !window.disableServiceWorkers) {
   navigator.serviceWorker.register('{{ROOT_URL}}{{SERVICE_WORKER_FILENAME}}', { scope: '{{ROOT_URL}}' })
     .then(function(reg) {
       let current = Promise.resolve();
